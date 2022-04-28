@@ -11,10 +11,10 @@ const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
     const navigate = useNavigate();
-    
+
     let errorElement;
 
-    if(loading || loading1){
+    if (loading || loading1) {
         return <Loading></Loading>
     }
 
@@ -24,6 +24,10 @@ const SocialLogin = () => {
 
     if (user || user1) {
         navigate('/home');
+    }
+    const handleSignInWithGoogle = (e) => {
+        e.preventDefault();
+        signInWithGoogle()
     }
 
     return (
@@ -36,7 +40,7 @@ const SocialLogin = () => {
             {errorElement}
             <div className=''>
                 <button
-                    onClick={() => signInWithGoogle()}
+                    onClick={handleSignInWithGoogle}
                     className='btn btn-info w-50 d-block mx-auto my-2'>
                     <img style={{ width: '30px' }} src={google} alt="" />
                     <span className='px-2'>Google Sign In</span>

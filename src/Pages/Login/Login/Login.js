@@ -56,7 +56,7 @@ const Login = () => {
             await sendPasswordResetEmail(email);
             toast('Sent email');
         }
-        else{
+        else {
             toast('please enter your email address');
         }
     }
@@ -79,6 +79,7 @@ const Login = () => {
             {errorElement}
             <p>New to Genius Car? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link> </p>
             <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+            <p>new user? <Link to="/register" className='text-primary pe-auto text-decoration-none'>Please rgister</Link> </p>
             <SocialLogin></SocialLogin>
             <ToastContainer />
         </div>
